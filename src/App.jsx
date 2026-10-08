@@ -1,12 +1,16 @@
+import { LocalizationProvider } from "@mui/x-date-pickers"
 import JuegosForm from "./components/JuegosForm"
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 
 
 function App() {
 
   return (
-    <>
-      <JuegosForm />
-    </>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <>
+        <JuegosForm />
+      </>
+    </LocalizationProvider>
   )
 }
 
