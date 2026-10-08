@@ -20,15 +20,23 @@ function JuegosContainer() {
         setJuegos([...juegos,juego]);
         setAlertaVisible(true);
     };
+
+    const handleDelete = (juego)=>{
+       // Aqui tengo que eliminar de la lista
+      const filtrada =  juegos.filter((j)=>{ return j?.nombre != juego?.nombre});
+      setJuegos(filtrada);
+    };
+
+
   return (
     <>
-    <div className='container'>
+    <div className='container mt-3'>
       <div className="row">
         <div className="col-4">
             <JuegosForm onCreateJuego={handleCreate} />
         </div>
         <div className="col-8">
-            <JuegosView juegos={juegos}></JuegosView>
+            <JuegosView juegos={juegos} onQuitar={handleDelete}></JuegosView>
         </div>
       </div>
     </div>
